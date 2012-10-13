@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="lab">
+</Property><Property Name="Solution File" Value="D:\Dropbox\POLI\Cursuri\EGC\Costash\lab1\lab.sln">
+</Property><Property Name="User Options File" Value="D:\Dropbox\POLI\Cursuri\EGC\Costash\lab1\lab.suo">
+</Property><Property Name="Date" Value="Saturday, 13 October, 2012">
+</Property><Property Name="Time" Value="12:23">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="lab.sln" Description="File successfully backed up as D:\Dropbox\POLI\Cursuri\EGC\Costash\lab1\lab.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="lab.suo" Description="File successfully backed up as D:\Dropbox\POLI\Cursuri\EGC\Costash\lab1\lab.suo.old">
+</Event><Event ErrorLevel="0" Project="lab" Source="lab.vcproj" Description="Converting project file 'D:\Dropbox\POLI\Cursuri\EGC\Costash\lab1\lab.vcproj'.">
+</Event><Event ErrorLevel="1" Project="lab" Source="lab.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="lab" Source="lab.vcproj" Description="Done converting to new project file 'D:\Dropbox\POLI\Cursuri\EGC\Costash\lab1\lab.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="lab" Source="lab.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="lab.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="lab.sln" Description="Converted">
+</Event></UpgradeLog>
