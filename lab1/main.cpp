@@ -89,7 +89,7 @@ void WorldDrawer2d::onIdle(){	//per frame
 	static int iteration = 1;
 	static int direction = 1;
 	static float scale_factor = 1;
-	static float step = .05;
+	static float step = .1;
 	static bool o1dir=true;
 	static bool o2dir=true;
 	static bool o3dir=true;
