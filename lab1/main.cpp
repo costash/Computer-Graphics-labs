@@ -85,6 +85,7 @@ void WorldDrawer2d::init(){
 
 }
 void WorldDrawer2d::onIdle(){	//per frame
+
 	//Sleep(20);
 	static int iteration = 1;
 	static int direction = 1;
