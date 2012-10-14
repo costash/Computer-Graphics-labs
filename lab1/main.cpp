@@ -27,6 +27,7 @@
 //----------------------------------------------------------------------------------------------
 
 #include "WorldDrawer2d.h"
+#include "Windows.h"
 bool WorldDrawer2d::animation=true;
 
 
@@ -84,23 +85,38 @@ void WorldDrawer2d::init(){
 
 }
 void WorldDrawer2d::onIdle(){	//per frame
-	static int iteration=1;
+	Sleep(20);
+	static int iteration = 1;
 	static int direction = 1;
+	static float scale_factor = 1;
+	static float step = .05;
 	static bool o1dir=true;
 	static bool o2dir=true;
 	static bool o3dir=true;
 	static bool o3dir2=true;
+
 	if(animation){
-		if (iteration % 25 == 0)
+		if (iteration == 25 || iteration == -10)
+		{
 			direction *= -1;
+		}
+
+		if (direction == 1)
+			scale_factor = (step + 1);
+		else
+			scale_factor = 1 / (1 + step);
 		
 		o1->translate(direction, 0);
+		o1->scaleRelativeToPoint(o1->axiscenter, scale_factor, scale_factor);
 
 		o2->rotateSelf(0.05);
 
 		o2->rotateRelativeToPoint(cs2->axiscenter, 0.01);
 
-		iteration++;
+		if (direction == 1)
+			iteration++;
+		else
+			iteration--;
 	}
 }
 
