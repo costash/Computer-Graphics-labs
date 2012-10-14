@@ -27,7 +27,7 @@
 //----------------------------------------------------------------------------------------------
 
 #include "WorldDrawer2d.h"
-#include "Windows.h"
+//#include "Windows.h"
 bool WorldDrawer2d::animation=true;
 
 
@@ -85,7 +85,7 @@ void WorldDrawer2d::init(){
 
 }
 void WorldDrawer2d::onIdle(){	//per frame
-	Sleep(20);
+	//Sleep(20);
 	static int iteration = 1;
 	static int direction = 1;
 	static float scale_factor = 1;
