@@ -101,11 +101,62 @@ void WorldDrawer3d::init(){
 	cs_basis.objectTranslate(o6,0,15,0);
 }
 void WorldDrawer3d::onIdle(){	//per frame
+	Sleep(20);
+	float step = 1.01f;
+	float angle = 0.05f;
+	float trans_step = 0.05f;
 	static int iteration=1;
+	static int dir = 1;
+	static int max_iter = 150;
 	if(animation){
+		
+		if (iteration < max_iter)
+		{
+			if (dir == 1)
+			{
+				o1->scaleRelativeToPoint(o1->axiscenter, step - .01, step - .01, step - .01);
+				o4->scaleRelativeToPoint(o4->axiscenter, step, step, step);
+				o5->scaleRelativeToPoint(o5->axiscenter, step, step, step);
+
+				o3->scaleRelativeToPoint(o3->axiscenter, step - 0.03f, step - 0.03f, step - 0.03f);
+			}
+			else
+			{
+				o1->scaleRelativeToPoint(o1->axiscenter, 1/(step - .01), 1/(step - .01), 1/(step - .01));
+				o4->scaleRelativeToPoint(o4->axiscenter, 1/step, 1/step, 1/step);
+				o5->scaleRelativeToPoint(o5->axiscenter, 1/step, 1/step, 1/step);
+
+				o3->scaleRelativeToPoint(o3->axiscenter, 1/(step - 0.03f), 1/(step - 0.03f), 1/(step - 0.03f));
+			}
+			o1->rotateXSelf(dir * angle);
+
+			o2->rotateYSelf(dir * angle);
+			o2->rotateYRelativeToPoint(cs_basis.axiscenter, dir * (-angle));
+
+			o3->rotateYSelf(dir * angle);
+			o3->translate(trans_step * dir, -trans_step * 2 * dir, -trans_step * dir); 
+
+			o4->rotateZRelativeToPoint(o3->axiscenter, dir * angle * 1.1);
+			o4->rotateXSelf(dir * angle);
+			o4->rotateXRelativeToPoint(o3->axiscenter, dir * angle * 1.4);
+
+			o5->translate((-trans_step * 4) * dir, 0, trans_step * dir);
+			o5->rotateXSelf(angle * 2);
+			o5->rotateYSelf(angle);
+			o5->rotateZRelativeToPoint(o3->axiscenter, dir * angle * 0.6);
+			o5->rotateXRelativeToPoint(o3->axiscenter, dir * angle * 0.6);
+
+			o6->rotateZSelf(angle * 2);
+			o6->rotateYRelativeToPoint(o5->axiscenter, -dir * angle * 0.5);
+		}
 
 
-		iteration++;
+		cs1->rotateYSelf(angle * 1.5);
+		cs1->rotateZSelf(angle * .5);
+
+		iteration += dir;
+		if (iteration == max_iter || iteration == 0)
+			dir *= -1;
 	}
 }
 
