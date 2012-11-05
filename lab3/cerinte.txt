@@ -1,0 +1,12 @@
+1. Pe prima coloana raman cuburi
+   Pe a doua coloana sa fie desenate sfere
+   Pe a treia coloana sa fie desenate toruri
+2. Obiectele de pe prima coloana se rotesc incontinuu
+   Obiectele de pe a doua coloana se translateaza incontinuu pe axa Y
+   Obiectele de pe a treia coloana se scaleaza incontinuu (scalare uniforma)
+3. Cu tasta 'ESC' se inchide aplicatia
+   Cu tasta 'w' - toate obiectele sunt desenate wireframe
+   Cu tasta 's' - toate obiectele sunt desenate solid
+4. CU tastele speciale sageata sus,jos,stanga,dreapta se selecteaza un obiect.
+   Initial este selectat obiectul din mijloc. 
+   Cand un obiect este selectat, este colorat cu alb.
