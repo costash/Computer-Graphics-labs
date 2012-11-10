@@ -66,39 +66,40 @@ void WorldDrawer3d::init(){
 	topology.push_back(6);topology.push_back(2);topology.push_back(5);
 	o1 = new Object3d(points,topology);
 	o1->setcolor(1,0.8f,0.9f);
+	o1->translate(4, 4, 4);
 	//cs1
 	cs1->objectAdd(o1);
-	cs1->translate(10,-3,-10);
-	cs1->rotateXSelf(3.1416f);
+	/*cs1->translate(10,-3,-10);
+	cs1->rotateXSelf(3.1416f);*/
 
-	//o2
-	o2 = new Object3d(points,topology);
-	o2->setcolor(1,1,1);
-	cs_basis.objectAdd(o2);
-	cs_basis.objectTranslate(o2,10,0,0);
+	////o2
+	//o2 = new Object3d(points,topology);
+	//o2->setcolor(1,1,1);
+	//cs_basis.objectAdd(o2);
+	//cs_basis.objectTranslate(o2,10,0,0);
 
-	//o3
-	o3 = new Object3d(points,topology);
-	o3->setcolor(0,1,0);
-	cs_basis.objectAdd(o3);
-	cs_basis.objectTranslate(o3,0,10,0);
+	////o3
+	//o3 = new Object3d(points,topology);
+	//o3->setcolor(0,1,0);
+	//cs_basis.objectAdd(o3);
+	//cs_basis.objectTranslate(o3,0,10,0);
 
-	//o4
-	o4 = new Object3d(points,topology);
-	o4->setcolor(1,1,0);
-	cs_basis.objectAdd(o4);
-	cs_basis.objectTranslate(o4,0,0,10);
+	////o4
+	//o4 = new Object3d(points,topology);
+	//o4->setcolor(1,1,0);
+	//cs_basis.objectAdd(o4);
+	//cs_basis.objectTranslate(o4,0,0,10);
 
-	//o5
-	o5 = new Object3d(points,topology);
-	o5->setcolor(1,1,1);
-	cs_basis.objectAdd(o5);
+	////o5
+	//o5 = new Object3d(points,topology);
+	//o5->setcolor(1,1,1);
+	//cs_basis.objectAdd(o5);
 
-	//o6
-	o6 = new Object3d(points,topology);
-	o6->setcolor(0.5,0.5,0.5);
-	cs_basis.objectAdd(o6);
-	cs_basis.objectTranslate(o6,0,15,0);
+	////o6
+	//o6 = new Object3d(points,topology);
+	//o6->setcolor(0.5,0.5,0.5);
+	//cs_basis.objectAdd(o6);
+	//cs_basis.objectTranslate(o6,0,15,0);
 }
 void WorldDrawer3d::onIdle(){	//per frame
 	Sleep(20);
@@ -110,53 +111,57 @@ void WorldDrawer3d::onIdle(){	//per frame
 	static int max_iter = 150;
 	if(animation){
 		
-		if (iteration < max_iter)
-		{
-			if (dir == 1)
-			{
-				o1->scaleRelativeToPoint(o1->axiscenter, step - .01, step - .01, step - .01);
-				o4->scaleRelativeToPoint(o4->axiscenter, step, step, step);
-				o5->scaleRelativeToPoint(o5->axiscenter, step, step, step);
+		
+		//o1->scaleRelativeToPoint(o1->axiscenter, 4, 4, 4);
+		o1->rotateYRelativeToPoint(o1->axiscenter, step/20);
 
-				o3->scaleRelativeToPoint(o3->axiscenter, step - 0.03f, step - 0.03f, step - 0.03f);
-			}
-			else
-			{
-				o1->scaleRelativeToPoint(o1->axiscenter, 1/(step - .01), 1/(step - .01), 1/(step - .01));
-				o4->scaleRelativeToPoint(o4->axiscenter, 1/step, 1/step, 1/step);
-				o5->scaleRelativeToPoint(o5->axiscenter, 1/step, 1/step, 1/step);
+		//if (iteration < max_iter)
+		//{
+		//	/*if (dir == 1)
+		//	{
+		//		o1->scaleRelativeToPoint(o1->axiscenter, step - .01, step - .01, step - .01);
+		//		o4->scaleRelativeToPoint(o4->axiscenter, step, step, step);
+		//		o5->scaleRelativeToPoint(o5->axiscenter, step, step, step);
 
-				o3->scaleRelativeToPoint(o3->axiscenter, 1/(step - 0.03f), 1/(step - 0.03f), 1/(step - 0.03f));
-			}
-			o1->rotateXSelf(dir * angle);
+		//		o3->scaleRelativeToPoint(o3->axiscenter, step - 0.03f, step - 0.03f, step - 0.03f);
+		//	}
+		//	else
+		//	{
+		//		o1->scaleRelativeToPoint(o1->axiscenter, 1/(step - .01), 1/(step - .01), 1/(step - .01));
+		//		o4->scaleRelativeToPoint(o4->axiscenter, 1/step, 1/step, 1/step);
+		//		o5->scaleRelativeToPoint(o5->axiscenter, 1/step, 1/step, 1/step);
 
-			o2->rotateYSelf(dir * angle);
-			o2->rotateYRelativeToPoint(cs_basis.axiscenter, dir * (-angle));
+		//		o3->scaleRelativeToPoint(o3->axiscenter, 1/(step - 0.03f), 1/(step - 0.03f), 1/(step - 0.03f));
+		//	}
+		//	o1->rotateXSelf(dir * angle);
 
-			o3->rotateYSelf(dir * angle);
-			o3->translate(trans_step * dir, -trans_step * 2 * dir, -trans_step * dir); 
+		//	o2->rotateYSelf(dir * angle);
+		//	o2->rotateYRelativeToPoint(cs_basis.axiscenter, dir * (-angle));
 
-			o4->rotateZRelativeToPoint(o3->axiscenter, dir * angle * 1.1);
-			o4->rotateXSelf(dir * angle);
-			o4->rotateXRelativeToPoint(o3->axiscenter, dir * angle * 1.4);
+		//	o3->rotateYSelf(dir * angle);
+		//	o3->translate(trans_step * dir, -trans_step * 2 * dir, -trans_step * dir); 
 
-			o5->translate((-trans_step * 4) * dir, 0, trans_step * dir);
-			o5->rotateXSelf(angle * 2);
-			o5->rotateYSelf(angle);
-			o5->rotateZRelativeToPoint(o3->axiscenter, dir * angle * 0.6);
-			o5->rotateXRelativeToPoint(o3->axiscenter, dir * angle * 0.6);
+		//	o4->rotateZRelativeToPoint(o3->axiscenter, dir * angle * 1.1);
+		//	o4->rotateXSelf(dir * angle);
+		//	o4->rotateXRelativeToPoint(o3->axiscenter, dir * angle * 1.4);
 
-			o6->rotateZSelf(angle * 2);
-			o6->rotateYRelativeToPoint(o5->axiscenter, -dir * angle * 0.5);
-		}
+		//	o5->translate((-trans_step * 4) * dir, 0, trans_step * dir);
+		//	o5->rotateXSelf(angle * 2);
+		//	o5->rotateYSelf(angle);
+		//	o5->rotateZRelativeToPoint(o3->axiscenter, dir * angle * 0.6);
+		//	o5->rotateXRelativeToPoint(o3->axiscenter, dir * angle * 0.6);
+
+		//	o6->rotateZSelf(angle * 2);
+		//	o6->rotateYRelativeToPoint(o5->axiscenter, -dir * angle * 0.5);
+		//}
 
 
-		cs1->rotateYSelf(angle * 1.5);
-		cs1->rotateZSelf(angle * .5);
+		//cs1->rotateYSelf(angle * 1.5);
+		//cs1->rotateZSelf(angle * .5);
 
-		iteration += dir;
-		if (iteration == max_iter || iteration == 0)
-			dir *= -1;
+		//iteration += dir;
+		//if (iteration == max_iter || iteration == 0)
+		//	dir *= -1;*/
 	}
 }
 
