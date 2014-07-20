@@ -1,5 +1,5 @@
-EGC labs
+Computer Graphics (EGC) labs
 --------
 
 
-This repo will contain all the labs from EGC
+This repo contains all the labs from the EGC class.
